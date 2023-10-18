@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public abstract class OpcionMenu {
     protected Cliente cliente;
+    protected char resuelve;
 
     // Constructor
     public OpcionMenu(Cliente cliente) {
@@ -13,4 +14,5 @@ public abstract class OpcionMenu {
 
     // Método abstracto para mostrar el menú específico de cada opción
     public abstract void mostrarMenu(Scanner scanner);
+    
 }
