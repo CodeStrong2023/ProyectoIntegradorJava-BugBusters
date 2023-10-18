@@ -14,12 +14,10 @@ public class OpcionFacturacion extends OpcionMenu {
         super(cliente);
         factura = new Facturacion();
     }
-<<<<<<< HEAD
-    
-=======
 
 
->>>>>>> e6c07c7d596bdc1b78bf4d70bb9dbdae593e806d
+
+
     // Implementación del método abstracto
     @Override
     public void mostrarMenu(Scanner scanner) {
