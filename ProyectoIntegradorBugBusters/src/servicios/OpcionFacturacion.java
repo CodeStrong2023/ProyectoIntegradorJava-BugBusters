@@ -9,7 +9,7 @@ public class OpcionFacturacion extends OpcionMenu {
     public OpcionFacturacion(Cliente cliente) {
         super(cliente);
     }
-
+    
     // Implementación del método abstracto
     @Override
     public void mostrarMenu(Scanner scanner) {
