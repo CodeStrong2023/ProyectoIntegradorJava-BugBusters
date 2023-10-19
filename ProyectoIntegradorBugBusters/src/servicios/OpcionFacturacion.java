@@ -16,8 +16,6 @@ public class OpcionFacturacion extends OpcionMenu {
     }
 
 
-
-
     // Implementación del método abstracto
     @Override
     public void mostrarMenu(Scanner scanner) {
