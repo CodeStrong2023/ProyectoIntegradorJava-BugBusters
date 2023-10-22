@@ -45,5 +45,13 @@ public class Cliente {
         return fechaNacimiento;
     }
 
-    public String getDomicilio() { return direccion; }
+
+    public String getDireccion() { return direccion; }
+
+    //Setters
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
 }
+

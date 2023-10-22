@@ -11,7 +11,7 @@ public class AsistenteVirtual {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-    
+
     public void mostrarMenuPrincipal(Scanner scanner) {
         int opcion;
 
@@ -34,6 +34,7 @@ public class AsistenteVirtual {
                     new OpcionCable(cliente).mostrarMenu(scanner);
                     break;
                 case 3:
+                    // Redirige a Facturación y maneja Cambio de Domicilio allí
                     new OpcionFacturacion(cliente).mostrarMenu(scanner);
                     break;
                 case 4:
@@ -53,19 +54,21 @@ public class AsistenteVirtual {
     // Función para registrar un nuevo cliente
     public Cliente registrarNuevoCliente(Scanner scanner) {
         System.out.print("Nombre: ");
-        String nombre = scanner.next();
+        String nombre = scanner.nextLine();
         System.out.print("Apellido: ");
-        String apellido = scanner.next();
+        String apellido = scanner.nextLine();
         System.out.print("DNI: ");
-        String dni = scanner.next();
+        String dni = scanner.nextLine();;
         System.out.print("Fecha de Nacimiento (YYYY-MM-DD): ");
-        String fechaNacimiento = scanner.next();
-        System.out.print("direccion: ");
-        String direccion = scanner.next();
+
+        String fechaNacimiento = scanner.nextLine();
+        System.out.print("Dirección: ");
+        String direccion = scanner.nextLine();
 
         // Verificacion la edad
         if (esMayorDeEdad(fechaNacimiento)) {
-            return new Cliente(nombre, apellido, dni, fechaNacimiento,direccion);
+            return new Cliente(nombre, apellido, dni, fechaNacimiento, direccion);
+
         } else {
             System.out.println("Lo siento, debes ser mayor de edad para registrarte en BugsBusters. Llama a alguien mayor para obtener ayuda.");
             return null;

@@ -49,7 +49,13 @@ public class OpcionFacturacion extends OpcionMenu {
                     System.out.println("Ha seleccionado Modalidades de Pago. ¿En qué puedo ayudarte?");
                     break;
                 case 3:
-                    System.out.println("Ha seleccionado Cambio de Domicilio. ¿En qué puedo ayudarte?");
+                    String direccionActual = cliente.getDireccion();
+                    System.out.println("Su direccion acutal es: " + direccionActual);
+                    System.out.println("Ingrese su nuevo domicilio: ");
+                    scanner.nextLine();
+                    String nevaDireccion = scanner.nextLine();
+                    cliente.setDireccion(nevaDireccion);
+                    System.out.println("Se modifico el domicilio " + direccionActual +" el nuevo domicilio es: " + cliente.getDireccion());
                     break;
                 case 4:
                     System.out.println("Ha seleccionado Cambio de Titularidad. ¿En qué puedo ayudarte?");
