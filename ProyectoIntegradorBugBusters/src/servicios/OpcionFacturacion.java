@@ -1,14 +1,20 @@
-
 package servicios;
 
+
+import servicios.Facturacion;
 import java.util.Scanner;
 import ChatBot.*;
 
+
 public class OpcionFacturacion extends OpcionMenu {
+    private Facturacion factura;
     // Constructor
+
     public OpcionFacturacion(Cliente cliente) {
         super(cliente);
+        factura = new Facturacion();
     }
+
 
     // Implementación del método abstracto
     @Override
@@ -30,13 +36,26 @@ public class OpcionFacturacion extends OpcionMenu {
 
             switch (opcionFacturacion) {
                 case 1:
-                    System.out.println("Ha seleccionado Tu Factura. ¿En qué puedo ayudarte?");
+                    System.out.println("--------------------------------------");
+                    System.out.println("Importe Cable: " + factura.getImporteCable());
+                    System.out.println("Importe Internet: " + factura.getImporteInternet());
+                    System.out.println("Importe Total: " + factura.getImporteTotal());
+                    System.out.println("Titular: " + cliente.getNombre() + " " + cliente.getApellido());
+                    System.out.println("Fehca de venicimiento: " + factura.getFechaVencimiento());
+                    System.out.println("--------------------------------------");
+
                     break;
                 case 2:
                     System.out.println("Ha seleccionado Modalidades de Pago. ¿En qué puedo ayudarte?");
                     break;
                 case 3:
-                    System.out.println("Ha seleccionado Cambio de Domicilio. ¿En qué puedo ayudarte?");
+                    String direccionActual = cliente.getDireccion();
+                    System.out.println("Su direccion acutal es: " + direccionActual);
+                    System.out.println("Ingrese su nuevo domicilio: ");
+                    scanner.nextLine();
+                    String nevaDireccion = scanner.nextLine();
+                    cliente.setDireccion(nevaDireccion);
+                    System.out.println("Se modifico el domicilio " + direccionActual +" el nuevo domicilio es: " + cliente.getDireccion());
                     break;
                 case 4:
                     System.out.println("Ha seleccionado Cambio de Titularidad. ¿En qué puedo ayudarte?");

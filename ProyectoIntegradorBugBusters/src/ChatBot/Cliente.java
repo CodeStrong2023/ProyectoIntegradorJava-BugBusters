@@ -8,12 +8,15 @@ public class Cliente {
     private String dni;
     private String fechaNacimiento;
 
+    private String direccion;
+
     // Constructor con argumentos
-    public Cliente(String nombre, String apellido, String dni, String fechaNacimiento) {
+    public Cliente(String nombre, String apellido, String dni, String fechaNacimiento, String direccion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.fechaNacimiento = fechaNacimiento;
+        this.direccion = direccion;
     }
 
     // Constructor sin argumentos
@@ -22,6 +25,7 @@ public class Cliente {
         this.apellido = "";
         this.dni = "";
         this.fechaNacimiento = "";
+        this.direccion = "";
     }
 
     // Getters
@@ -40,4 +44,12 @@ public class Cliente {
     public String getFechaNacimiento() {
         return fechaNacimiento;
     }
+
+    public String getDireccion() { return direccion; }
+
+    //Setters
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
 }
+
