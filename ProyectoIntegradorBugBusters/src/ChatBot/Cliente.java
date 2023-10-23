@@ -45,11 +45,28 @@ public class Cliente {
         return fechaNacimiento;
     }
 
+
     public String getDireccion() { return direccion; }
 
     //Setters
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 }
 

@@ -60,6 +60,7 @@ public class AsistenteVirtual {
         System.out.print("DNI: ");
         String dni = scanner.nextLine();;
         System.out.print("Fecha de Nacimiento (YYYY-MM-DD): ");
+
         String fechaNacimiento = scanner.nextLine();
         System.out.print("Dirección: ");
         String direccion = scanner.nextLine();
@@ -67,6 +68,7 @@ public class AsistenteVirtual {
         // Verificacion la edad
         if (esMayorDeEdad(fechaNacimiento)) {
             return new Cliente(nombre, apellido, dni, fechaNacimiento, direccion);
+
         } else {
             System.out.println("Lo siento, debes ser mayor de edad para registrarte en BugsBusters. Llama a alguien mayor para obtener ayuda.");
             return null;

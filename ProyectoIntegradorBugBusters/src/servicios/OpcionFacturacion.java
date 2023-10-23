@@ -58,7 +58,25 @@ public class OpcionFacturacion extends OpcionMenu {
                     System.out.println("Se modifico el domicilio " + direccionActual +" el nuevo domicilio es: " + cliente.getDireccion());
                     break;
                 case 4:
-                    System.out.println("Ha seleccionado Cambio de Titularidad. ¿En qué puedo ayudarte?");
+                    System.out.println("Ha seleccionado Cambio de Titularidad.");
+                    System.out.println("Ingrese el nombre del nuevo titular: ");
+                    scanner.nextLine(); // Consumir el carácter de nueva línea pendiente
+                    cliente.setNombre(scanner.nextLine());
+                    System.out.println("Ingrese el apellido del nuevo titular: ");
+                    cliente.setApellido(scanner.nextLine());
+                    System.out.println("Ingrese el DNI del nuevo titular: ");
+                    cliente.setDni(scanner.nextLine());
+                    System.out.println("Ingrese la fecha de nacimiento del nuevo titular: ");
+                    cliente.setFechaNacimiento(scanner.nextLine());
+                    System.out.println("Ingrese la dirección del nuevo titular: ");
+                    cliente.setDireccion(scanner.nextLine());
+                    System.out.println("Se ha cambiado el titular de la cuenta.");
+                    System.out.println("Sus nuevos datos son");
+                    System.out.println("Nombre: " + cliente.getNombre());
+                    System.out.println("Apellido: " + cliente.getApellido());
+                    System.out.println("DNI: " + cliente.getDni());
+                    System.out.println("Fecha de Nacimiento: " + cliente.getFechaNacimiento());
+                    System.out.println("Dirección: " + cliente.getDireccion());
                     break;
                 case 5:
                     System.out.println("Ha seleccionado Baja de Servicio. ¿En qué puedo ayudarte?");
