@@ -36,7 +36,8 @@ public class Consulta {
         if(consulta == 's'){
             System.out.println(">> REDIRIGIENDO AL MENÚ PRINCIPAL <<");
             new AsistenteVirtual().mostrarMenuPrincipal(scanner);
-        }else{
+        }
+        else{
             salir();
         }
     }
@@ -49,7 +50,7 @@ public class Consulta {
                            --------------------------------------
                            """);
         
-        System.out.println("La visita se realizara al domiciolio: ");
+        System.out.println("La visita se realizara al domiciolio: " + cliente.getDireccion());
         System.out.println("Se comunicaran con usted al numero: ");
     }
     
@@ -69,6 +70,6 @@ public class Consulta {
                           ^    |--------> FRANCO PIZARRO          ^
                           <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
                            """);
-    }
-        
+        System.exit(0);
+    }  
 }
