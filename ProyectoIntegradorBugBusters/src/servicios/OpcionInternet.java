@@ -1,4 +1,4 @@
-
+//REVISAR LINEA 125, hay un bucle al indicar que tiene otra consulta e intenta salir del menú
 package servicios;
 
 import java.util.Scanner;
@@ -54,7 +54,7 @@ public class OpcionInternet extends OpcionMenu {
     
     //Método para la opción "Sin servicio"
     public void sinServicio(Scanner scanner){
-        int encendido = 0;
+        int encendido;
         char opciones, opcion;
         
         do {
@@ -87,6 +87,7 @@ public class OpcionInternet extends OpcionMenu {
                     
                     if (opcion == 'n'){
                         System.out.println("\n>> Por favor conecte la ficha power al equipo.");
+                        new Consulta(cliente).resolucion(cliente);
                         break;
                     }else if(opcion == 's'){
                         do{
@@ -102,6 +103,7 @@ public class OpcionInternet extends OpcionMenu {
                         
                             if(opcion == 'n'){
                                 System.out.println("\n>> Por favor, pruebe en otro tomacorriente.");
+                                new Consulta(cliente).resolucion(cliente);
                                 break;
                             }else if(opcion == 's'){
                                 do{
@@ -117,24 +119,30 @@ public class OpcionInternet extends OpcionMenu {
                                 
                                     if(opcion == 'n'){
                                         System.out.println("\n>> Por favor, cambie el botón de encendido a ON.");
+                                        new Consulta(cliente).resolucion(cliente);
                                         break;
                                     }else if(opcion == 's'){
-                                        do{
-                                            
-                                            System.out.println("\n¿Resolvió su inconveniente?");
-                                            opciones = scanner.next().charAt(0);
-                                            opcion = Character.toLowerCase(opciones);
-                                            
-                                            if(opcion == 's'){
-                                                System.out.println("\nPara volver al menú principal seleccione la opción 0.");
-                                                mostrarMenu(scanner);
-                                            }else if(opcion == 'n'){
-                                                tipoRouter(scanner);
-                                            }else{
-                                                System.out.println("\nOpción no válida. Por favor, seleccione una opción correcta.");
-                                            }
-                                            
-                                        }while(opcion != 's' || opcion != 'n');
+                                        new Consulta(cliente).otraConsulta();
+//                                        do{
+//                                            
+//                                            System.out.println("\n¿Resolvió su inconveniente?");
+//                                            System.out.println("s = SI");
+//                                            System.out.println("n = NO");
+//                                            opciones = scanner.next().charAt(0);
+//                                            opcion = Character.toLowerCase(opciones);
+//                                            
+//                                            if(opcion == 's'){
+//                                                System.out.println("\nProblema solucionado!! Será redirigido al menú principal.");
+//                                                new AsistenteVirtual().mostrarMenuPrincipal(scanner);
+//                                                break;
+//                                            }else if(opcion == 'n'){
+//                                                System.out.println("\nSe generará una orden de visita técnica. ");
+//                                                new Consulta(cliente).generarOrden(cliente);
+//                                            }else{
+//                                                System.out.println("\nOpción no válida. Por favor, seleccione una opción correcta.");
+//                                            }
+//                                            
+//                                        }while(opcion != 's' || opcion != 'n');
                                     break;    
                                     }else{
                                         System.out.println("\nOpción no válida. Por favor, seleccione una opción correcta.");
@@ -151,20 +159,20 @@ public class OpcionInternet extends OpcionMenu {
                     }else{
                         System.out.println("\nOpción no válida. Por favor, seleccione una opción correcta.");                
                     }
-                
+                    
                 }while(opcion != 's' || opcion != 'n');   
             break;
             
             case 2:
-                
+                System.out.println("""
+                                   >> Seleccione el tipo de router que posee:
+                                   1. Router WiFi
+                                   2. Router FTTH
+                                   """);
                 break;
             default:
-                throw new AssertionError();
+                System.out.println("\nOpción no válida. Por favor, seleccione una opción correcta.");  
         }
     }
     
-    //Metodo para verificacion del tipo de router
-    public void tipoRouter(Scanner scanner){
-        
-    }
 }
