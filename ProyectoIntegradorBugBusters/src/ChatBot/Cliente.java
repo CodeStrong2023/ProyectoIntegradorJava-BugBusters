@@ -7,11 +7,12 @@ public class Cliente {
     private String apellido;
     private String dni;
     private String fechaNacimiento;
-
+    private String telefono;
+    private String correo;
     private String direccion;
 
     // Constructor con argumentos
-    public Cliente(String nombre, String apellido, String dni, String fechaNacimiento, String direccion) {
+    public Cliente(String nombre, String apellido, String dni, String fechaNacimiento, String direccion, String telefono, String correo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -55,7 +56,7 @@ public class Cliente {
         return telefono;
     }
 
-    public String getCorreo) { return correo; }
+    public String getCorreo() { return correo; }
 
 
     //Setters
