@@ -28,6 +28,8 @@ public class Cliente {
         this.dni = "";
         this.fechaNacimiento = "";
         this.direccion = "";
+        this.telefono = "";
+        this.correo = "";
     }
 
     // Getters
@@ -47,8 +49,14 @@ public class Cliente {
         return fechaNacimiento;
     }
 
-
     public String getDireccion() { return direccion; }
+
+    public String getTelefono() {
+        returntelefono;
+    }
+
+    public String getCorreo) { return correo; }
+
 
     //Setters
     public void setDireccion(String direccion) {
@@ -69,6 +77,14 @@ public class Cliente {
 
     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 }
 
