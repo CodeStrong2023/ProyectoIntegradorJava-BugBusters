@@ -65,7 +65,6 @@ public class Consulta {
                           ^    |--------> DAVID ABADIE            ^
                           ^    |--------> NICOLAS NUÑEZ           ^
                           ^    |--------> BELEN LIMACHI           ^
-                          ^    |--------> ANGEL ROJAS             ^
                           ^    |--------> FLORENCIA CAMONA        ^
                           ^    |--------> FRANCO PIZARRO          ^
                           <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
