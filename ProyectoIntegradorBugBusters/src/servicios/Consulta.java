@@ -50,8 +50,9 @@ public class Consulta {
                            --------------------------------------
                            """);
         
-        System.out.println("La visita se realizara al domiciolio: " + cliente.getDireccion());
-        System.out.println("Se comunicaran con usted al numero: ");
+        System.out.println("La visita se realizara al domicilio: " + cliente.getDireccion());
+        System.out.println("Se comunicaran con usted al numero: " + cliente.getTelefono());
+        otraConsulta();
     }
     
     //Metodo salir
@@ -65,7 +66,6 @@ public class Consulta {
                           ^    |--------> DAVID ABADIE            ^
                           ^    |--------> NICOLAS NUÑEZ           ^
                           ^    |--------> BELEN LIMACHI           ^
-                          ^    |--------> ANGEL ROJAS             ^
                           ^    |--------> FLORENCIA CAMONA        ^
                           ^    |--------> FRANCO PIZARRO          ^
                           <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";

@@ -13,7 +13,7 @@ public class OpcionAsistenciaTelefonica extends OpcionMenu {
     // Implementación del método abstracto
     @Override
     public void mostrarMenu(Scanner scanner) {
-        System.out.println("En instantes nuestro asistente virtual se comunicará con usted.");
+        System.out.println("En instantes nuestro asistente virtual se comunicará con usted al telefono: " + cliente.getTelefono());
         System.out.println("GRACIAS POR UTILIZAR NUESTRO ASISTENTE VIRTUAL");
     }
 }
