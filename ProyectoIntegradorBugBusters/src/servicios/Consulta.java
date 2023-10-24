@@ -14,6 +14,10 @@ public class Consulta {
     }
     
     Scanner scanner = new Scanner(System.in);
+
+    Consulta() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     //Metodo solucion 
     public void resolucion(Cliente cliente){
@@ -46,7 +50,7 @@ public class Consulta {
     public void generarOrden(Cliente cliente){
         System.out.println("""
                            --------------------------------------
-                           ****~~     GENERANDO ORDEN      ~~****
+                           ****~~     TICKET DE ORDEN      ~~****
                            --------------------------------------
                            """);
         
