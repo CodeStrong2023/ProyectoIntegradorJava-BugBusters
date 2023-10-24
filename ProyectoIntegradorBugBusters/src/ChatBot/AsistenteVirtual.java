@@ -71,7 +71,17 @@ public class AsistenteVirtual {
 
         // Verificacion la edad
         if (esMayorDeEdad(fechaNacimiento)) {
-            return new Cliente(nombre, apellido, dni, fechaNacimiento, direccion);
+            System.out.println("Sus datos han sido verificados correctamente:");
+            System.out.println("Nombre: " + nombre);
+            System.out.println("Apellido: " + apellido);
+            System.out.println("DNI: " + dni);
+            System.out.println("Fecha de Nacimiento: " + fechaNacimiento);
+            System.out.println("Teléfono: " + telefono);
+            System.out.println("Correo: " + correo);
+
+
+            return new Cliente(nombre, apellido, dni, fechaNacimiento, telefono, correo);
+        } else {
 
         } else {
             System.out.println("Lo siento, debes ser mayor de edad para registrarte en BugsBusters. Llama a alguien mayor para obtener ayuda.");
