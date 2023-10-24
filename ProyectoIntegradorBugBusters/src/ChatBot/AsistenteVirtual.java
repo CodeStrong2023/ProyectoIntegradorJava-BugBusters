@@ -75,7 +75,7 @@ public class AsistenteVirtual {
         }
     }
 
-    // Verificar si es mayor de edad (negativa la maniobra)
+    // Verificar si es mayor de edad
     private boolean esMayorDeEdad(String fechaNacimiento) {
         return fechaNacimiento.compareTo("2005-01-01") <= 0;
     }
