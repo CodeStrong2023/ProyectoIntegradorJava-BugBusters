@@ -121,7 +121,7 @@ public class OpcionInternet extends OpcionMenu {
                                     }else if(opcion == 's'){
                                         do{
                                             
-                                            System.out.println("¿Resolvió su inconveniente?");
+                                            System.out.println("\n¿Resolvió su inconveniente?");
                                             opciones = scanner.next().charAt(0);
                                             opcion = Character.toLowerCase(opciones);
                                             
