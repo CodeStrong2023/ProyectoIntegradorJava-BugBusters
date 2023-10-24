@@ -60,6 +60,10 @@ public class AsistenteVirtual {
         System.out.print("DNI: ");
         String dni = scanner.nextLine();;
         System.out.print("Fecha de Nacimiento (YYYY-MM-DD): ");
+        String telefono = scanner.nextLine();
+        System.out.print("Teléfono: ");
+        String correo = scanner.nextLine();
+        System.out.print("Correo: ");
 
         String fechaNacimiento = scanner.nextLine();
         System.out.print("Dirección: ");

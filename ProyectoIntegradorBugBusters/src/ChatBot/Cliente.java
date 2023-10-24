@@ -17,6 +17,8 @@ public class Cliente {
         this.dni = dni;
         this.fechaNacimiento = fechaNacimiento;
         this.direccion = direccion;
+        this.telefono = telefono;
+        this.correo = correo;
     }
 
     // Constructor sin argumentos
