@@ -52,7 +52,7 @@ public class Cliente {
     public String getDireccion() { return direccion; }
 
     public String getTelefono() {
-        returntelefono;
+        return telefono;
     }
 
     public String getCorreo) { return correo; }
