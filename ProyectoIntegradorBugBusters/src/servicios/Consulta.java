@@ -15,10 +15,6 @@ public class Consulta {
     
     Scanner scanner = new Scanner(System.in);
 
-    Consulta() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
     //Metodo solucion 
     public void resolucion(Cliente cliente){
         System.out.println("¿Resolvio su consulta? s/n");
@@ -54,8 +50,8 @@ public class Consulta {
                            --------------------------------------
                            """);
         
-        System.out.println("La visita se realizara al domicilio: " + cliente.getDireccion());
-        System.out.println("Se comunicaran con usted al numero: " + cliente.getTelefono());
+        System.out.println("La visita se realizará al domicilio: " + cliente.getDireccion());
+        System.out.println("Se comunicarán con usted al teléfono: " + cliente.getTelefono());
         otraConsulta();
     }
     
