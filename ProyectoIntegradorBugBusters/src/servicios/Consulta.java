@@ -19,6 +19,7 @@ public class Consulta {
     public void resolucion(Cliente cliente){
         System.out.println("¿Resolvio su consulta? s/n");
         resuelve = scanner.next().charAt(0);
+        resuelve = Character.toLowerCase(resuelve);
         
         if(resuelve == 's'){
             otraConsulta();
@@ -32,6 +33,7 @@ public class Consulta {
     public void otraConsulta(){
         System.out.println("¿Tiene otra consulta? s/n");
         consulta = scanner.next().charAt(0);
+        consulta = Character.toLowerCase(consulta);
         
         if(consulta == 's'){
             System.out.println(">> REDIRIGIENDO AL MENÚ PRINCIPAL <<");
