@@ -14,11 +14,12 @@ public class Consulta {
     }
     
     Scanner scanner = new Scanner(System.in);
-    
+
     //Metodo solucion 
     public void resolucion(Cliente cliente){
         System.out.println("¿Resolvio su consulta? s/n");
         resuelve = scanner.next().charAt(0);
+        resuelve = Character.toLowerCase(resuelve);
         
         if(resuelve == 's'){
             otraConsulta();
@@ -32,6 +33,7 @@ public class Consulta {
     public void otraConsulta(){
         System.out.println("¿Tiene otra consulta? s/n");
         consulta = scanner.next().charAt(0);
+        consulta = Character.toLowerCase(consulta);
         
         if(consulta == 's'){
             System.out.println(">> REDIRIGIENDO AL MENÚ PRINCIPAL <<");
@@ -46,12 +48,13 @@ public class Consulta {
     public void generarOrden(Cliente cliente){
         System.out.println("""
                            --------------------------------------
-                           ****~~     GENERANDO ORDEN      ~~****
+                           ****~~     TICKET DE ORDEN      ~~****
                            --------------------------------------
                            """);
         
-        System.out.println("La visita se realizara al domiciolio: " + cliente.getDireccion());
-        System.out.println("Se comunicaran con usted al numero: ");
+        System.out.println("La visita se realizará al domicilio: " + cliente.getDireccion());
+        System.out.println("Se comunicarán con usted al teléfono: " + cliente.getTelefono());
+        otraConsulta();
     }
     
     //Metodo salir
@@ -65,7 +68,6 @@ public class Consulta {
                           ^    |--------> DAVID ABADIE            ^
                           ^    |--------> NICOLAS NUÑEZ           ^
                           ^    |--------> BELEN LIMACHI           ^
-                          ^    |--------> ANGEL ROJAS             ^
                           ^    |--------> FLORENCIA CAMONA        ^
                           ^    |--------> FRANCO PIZARRO          ^
                           <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";

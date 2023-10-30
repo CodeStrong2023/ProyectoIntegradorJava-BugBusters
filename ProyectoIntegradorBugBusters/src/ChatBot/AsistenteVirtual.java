@@ -60,22 +60,33 @@ public class AsistenteVirtual {
         System.out.print("DNI: ");
         String dni = scanner.nextLine();;
         System.out.print("Fecha de Nacimiento (YYYY-MM-DD): ");
-
         String fechaNacimiento = scanner.nextLine();
+        System.out.print("Teléfono: ");
+        String telefono = scanner.nextLine();
+        System.out.print("Correo: ");
+        String correo = scanner.nextLine();
         System.out.print("Dirección: ");
         String direccion = scanner.nextLine();
 
         // Verificacion la edad
         if (esMayorDeEdad(fechaNacimiento)) {
-            return new Cliente(nombre, apellido, dni, fechaNacimiento, direccion);
-
+            System.out.println("\nSus datos han sido verificados correctamente:");
+            System.out.println("Nombre: " + nombre);
+            System.out.println("Apellido: " + apellido);
+            System.out.println("DNI: " + dni);
+            System.out.println("Fecha de Nacimiento: " + fechaNacimiento);
+            System.out.println("Direccion: " + direccion);
+            System.out.println("Teléfono: " + telefono);
+            System.out.println("Correo: " + correo);
+            
+            return new Cliente(nombre, apellido, dni, fechaNacimiento, direccion, telefono, correo);
         } else {
             System.out.println("Lo siento, debes ser mayor de edad para registrarte en BugsBusters. Llama a alguien mayor para obtener ayuda.");
-            return null;
+           return null;
         }
     }
 
-    // Verificar si es mayor de edad (negativa la maniobra)
+    // Verificar si es mayor de edad
     private boolean esMayorDeEdad(String fechaNacimiento) {
         return fechaNacimiento.compareTo("2005-01-01") <= 0;
     }
