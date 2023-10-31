@@ -632,6 +632,82 @@ public class OpcionInternet extends OpcionMenu {
     
     //Método para cambiar la contraseña del router
     public void cambioContrasenia(Scanner scanner) {
+        int opcion;
+        String claveManual;
+        
+        // TODO code application logic here
+        Scanner entrada = new Scanner(System.in);
+        
+        System.out.print("Ingrese el nombre de la red WiFi: ");
+        String nombreRed = entrada.next();
+        System.out.println("Su red de WiFi es: " +nombreRed);
+        do {
+            System.out.println("*MENÚ DE CONTRASEÑA DE CAMBIO DE CONTRASEÑA*");
+            System.out.println("¿Desea que su contraseña sea aleatoria o manual"); 
+            System.out.println("1. Aleatoria");
+            System.out.println("2. Manual");
+            System.out.println("3. Salir del menú");
+            opcion = entrada.nextInt();
+            entrada.nextLine(); //Consume la nueva línea pendiente
+            
+            switch(opcion){
+                case 1: // Clave Aleatorio
+                    System.out.println("Usted a elegido la opcion de crear la contraseña aleatoriamente");
+                    System.out.println("Se creara una contraseña de 15 digitos para una mayor seguridad");
+                    System.out.println("Su nueva contraseña es: ");
+                    System.out.println(generaContrasena());
+                    System.out.println("Contraseña segura. Gracias por usar el programa");
+                    return; // Salir del programa
+                    
+                case 2: // Clave Manual
+                    System.out.println("*CONSEJO*");
+                    System.out.println("Para que su contraseña sea segura, por favor ingresar minimo 8 digitos");
+                    System.out.println("Ingrese su contraseña nueva de manera manual: ");
+                    claveManual = entrada.next();
 
+                    if (claveManual.length() < 8) {
+                        System.out.println("***CONTRASEÑA INSEGURA***");
+                        System.out.println("Debe tener al menos 8 digitos");
+                        System.out.println("\n");
+                    }else{
+                        System.out.println("***CONSTRASEÑA SEGURA***");
+                        System.out.println("Gracias por usar el programa");
+                        return; // Salir del programa
+                        }
+                    break;
+                    
+                case 3: // Salir del programa
+                    System.out.println("Saliendo del programa ¡Hasta luego!");
+                    break;
+                    
+                default:
+                    System.out.println("Opción no válida. Inténtelo de nuevo");
+            }
+        }while (opcion != 3);
+    }
+    
+    static String generaContrasena(){
+        char[] mayusculas = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+        char[] minusculas = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+        char[] numeros = {'0', '1', '2', '3', '4', '5', '6','7', '8', '9'};
+        char[] simbolos = {'!','¡','?','¿','@','#','$','&','*','(',')','-','_',':',';','.'};
+        
+        //Unimos todos los caracteres en uno solo con StringBuilder
+        StringBuilder caracteres = new StringBuilder();
+        caracteres.append(mayusculas);
+        caracteres.append(minusculas);
+        caracteres.append(numeros);
+        caracteres.append(simbolos);
+        
+        StringBuilder contrasena = new StringBuilder();
+        
+        for (int i = 0; i <= 15; i++) {
+            int cantidadCaracteres = caracteres.length();
+            int numeroRamdom = (int)(Math.random()*cantidadCaracteres);
+            
+            contrasena.append((caracteres.toString()).charAt(numeroRamdom));
+        }
+        return contrasena.toString();
     }
 }
+
