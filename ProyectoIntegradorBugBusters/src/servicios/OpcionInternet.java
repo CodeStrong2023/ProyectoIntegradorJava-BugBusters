@@ -403,9 +403,233 @@ public class OpcionInternet extends OpcionMenu {
 
     //Método para el test de velocidad
     public void testVelocidad(Scanner scanner) {
+        int opcionMenu;
 
+        do {
+            System.out.println("------------------------------------------------------------------");
+            System.out.println("   	     		   			>> TEST DE VELOCIDAD DE INTERNET <<");
+            System.out.println("");
+            System.out.println(" Para comenzar, seleccione una de las siguientes opciones: ");
+            System.out.println("");
+            System.out.println("(1) INDICACIONES PARA REALIZAR EL TEST DE VELOCIDAD DE TU INTERNET");
+            System.out.println("(2) INTERPRETACION DE LOS RESULTADOS DEL TEST DE VELOCIDAD");
+            System.out.println("(3) SALIR");
+            System.out.println("-------------------------------------------------------------------");
+            System.out.println("");
+            opcionMenu = scanner.nextInt();
+            limpiarPantalla();
+        } while (opcionMenu <= 0 || opcionMenu >= 4);
+
+        switch (opcionMenu) {
+            case 1:
+                System.out.println(">> Por favor, siga las siguientes instrucciones:");
+                System.out.println("");
+                instruccionesTest();
+                break;
+             case 2:
+                System.out.println("INTERPRETACION DE LOS RESULTADOS");
+                System.out.println("");
+                interpretacionResultados();
+                break;
+            case 3:
+                System.out.println("");
+                System.out.println("Muchas gracias por usar nuestro servicio. Volverá al menú de Internet");
+                esperarSegundos(2);
+                // Llama a la función internet con los argumentos adecuados
+                break;
+            default:
+                System.out.println("ERROR, opción NO VALIDA");
+                mostrarMenuTesteo();
+        }
     }
 
+    public static void instruccionesTest() {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("1. Conecta tu dispositivo a la red Wi-Fi de tu hogar");
+        esperarSegundos(2);
+        System.out.println("2. Abre un navegador web en el dispositivo");
+        esperarSegundos(2);
+        System.out.println("3. Visita el sitio web www.speedtest.net");
+        esperarSegundos(2);
+        System.out.println("4. Haz click en el boton >Iniciar Test< para comenzar la prueba");
+        esperarSegundos(2);
+        System.out.println("5. Espera a que la prueba finalice y obtendrás los resultados de velocidad");
+        esperarSegundos(2);
+        System.out.print("Digite -enter- para continuar con el análisis");
+        scanner.nextLine();
+        limpiarPantalla();
+        interpretacionResultados();
+    }
+
+    public static void interpretacionResultados() {
+        Scanner scanner = new Scanner(System.in);
+        double velocidad_bajada_ideal = 30;
+        double velocidad_subida_ideal = 3;
+        
+        int diagnostico;
+        
+        do {
+            System.out.println("Para evaluar tus resultados, por favor selecciona una opción: ");
+            System.out.println("");
+            System.out.println(" (1) DIAGNÓSTICO GENERAL");
+            System.out.println(" (2) DIAGNÓSTICO POR ACTIVIDAD");
+            diagnostico = scanner.nextInt();
+            limpiarPantalla();
+        } while (diagnostico <= 0 || diagnostico >= 3);
+        
+        switch (diagnostico) {
+            case 1:
+                Scanner scanner = new Scanner(System.in);
+                double velocidad_bajada, velocidad_subida;
+                
+                System.out.println("Por favor, ingrese los valores obtenidos: ");
+                System.out.println("");
+                System.out.print("Velocidad de CARGA en (Mbps): ");
+                velocidad_subida = scanner.nextDouble();
+                System.out.println("");
+                System.out.print("Velocidad de DESCARGA en (Mbps): ");
+                velocidad_bajada = scanner.nextDouble();
+                
+                if (velocidad_subida >= velocidad_subida_ideal && velocidad_bajada >= velocidad_bajada_ideal) {
+                    System.out.println("");
+                    System.out.println("         ----- RESULTADO -----");
+                    System.out.println("        ==== SATISFACTORIO ===");
+                    System.out.println("  Parámetros de velocidad excelentes");
+                    System.out.println("");
+                    esperarSegundos(2);
+                    limpiarPantalla();
+                    resolucionConsulta();
+                } else if ((velocidad_subida > 2 && velocidad_subida < velocidad_subida_ideal) &&
+                           (velocidad_bajada < velocidad_bajada_ideal && velocidad_bajada > 25)) {
+                    System.out.println("");
+                    System.out.println("      ------ RESULTADO ------");
+                    System.out.println("      ==== SATISFACTORIO ===");
+                    System.out.println(" Parámetros de velocidad normales");
+                    System.out.println("");
+                    esperarSegundos(2);
+                    limpiarPantalla();
+                    resolucionConsulta();
+                } else {
+                    System.out.println("");
+                    System.out.println("      ------- RESULTADO -------");
+                    System.out.println("      ==== NO SATISFACTORIO ===");
+                    System.out.println(" Parámetros de velocidad insuficientes");
+                    System.out.println("");
+                    esperarSegundos(2);
+                    limpiarPantalla();
+                    resolucionConsulta();
+                }
+                break;
+                
+            case 2:
+                velocidadSegunActividad();
+                break;
+        }
+    }
+
+    public static void velocidadSegunActividad() {
+        Scanner scanner = new Scanner(System.in);
+        int velocidad_descarga_medida;
+        int filaIndice;
+        int RTA;
+        
+        System.out.println("Por favor, ingresar la velocidad de Descarga medida");
+        velocidad_descarga_medida = scanner.nextInt();
+        limpiarPantalla();
+        esperarSegundos(1);
+        
+        do {
+            System.out.println(" >> Por favor, selecciona la actividad en línea para verificar la capacidad de su Velocidad >>");
+            System.out.println("");
+            System.out.println("    1- Streaming");
+            System.out.println("    2- Navegacion Web General");
+            System.out.println("    3- Reunión virtual");
+            System.out.println("    4- Juegos en Línea");
+            System.out.println("    5- Descarga y subida de documentos");
+            System.out.println("");
+            filaIndice = scanner.nextInt();
+        } while (filaIndice <= 0 || filaIndice >= 6);
+        
+        int[][] matriz = {
+            {1, 5, velocidad_descarga_medida},
+            {2, 8, velocidad_descarga_medida},
+            {3, 33, velocidad_descarga_medida},
+            {4, 50, velocidad_descarga_medida},
+            {5, 40, velocidad_descarga_medida}
+        };
+        
+        int filaIndiceNuevo = filaIndice - 1;
+        
+        String textoCompleto = "Se necesita un mínimo de: " + matriz[filaIndiceNuevo][1] + " Mbps para poder realizar esta actividad";
+        
+        if (matriz[filaIndiceNuevo][1] < velocidad_descarga_medida) {
+            System.out.println("");
+            System.out.println("Su velocidad de internet SI ES SUFICIENTE para esta actividad");
+            System.out.println("");
+            esperarSegundos(3);
+            limpiarPantalla();
+        } else {
+            System.out.println("");
+            System.out.println("Su velocidad de internet NO ES SUFICIENTE para esta actividad");
+            System.out.println("");
+            esperarSegundos(2);
+            System.out.println(textoCompleto);
+            esperarSegundos(3);
+            limpiarPantalla();
+        }
+        
+        do {
+            System.out.println(" ¿Quiere consultar por otra actividad en Línea? ");
+            System.out.println("");
+            System.out.println(" (1) SI / Volver a consultar");
+            System.out.println(" (2) NO / Volver al menú Testeo");
+            System.out.println("");
+            RTA = scanner.nextInt();
+            
+            if (RTA == 1) {
+                velocidadSegunActividad();
+            } else if (RTA == 2) {
+                mostrarMenuTesteo();
+            } else {
+                System.out.println("ERROR, opción NO VALIDA, ingrese una respuesta correcta");
+                System.out.println("");
+                limpiarPantalla();
+            }
+        } while (RTA <= 0 || RTA >= 3);
+    }
+
+    public static void resolucionConsulta() {
+        Scanner scanner = new Scanner(System.in);
+        int opcionSeleccion3;
+        
+        System.out.println("¿Resolvió su consulta?");
+        System.out.println("");
+        
+        do {
+            System.out.println(" (1) SI / Volver al menú Internet");
+            System.out.println(" (2) NO / Volver al menú Testeo");
+            System.out.print("Su respuesta es: ");
+            opcionSeleccion3 = scanner.nextInt();
+            
+            if (opcionSeleccion3 == 1) {
+                internet();
+            } else if (opcionSeleccion3 == 2) {
+                mostrarMenuTesteo();
+            } else {
+                System.out.println("ERROR, opción NO VALIDA, ingrese una respuesta correcta");
+                System.out.println("");
+            }
+        } while (opcionSeleccion3 <= 0 || opcionSeleccion3 >= 3);
+    }
+
+    public static void limpiarPantalla() {
+    }
+        
+ 
+ 
+}    
+    
     //Método para cambiar la contraseña del router
     public void cambioContrasenia(Scanner scanner) {
         int opcion;
