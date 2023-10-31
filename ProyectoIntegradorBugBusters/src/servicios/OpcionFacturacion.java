@@ -1,9 +1,11 @@
 package servicios;
 
-
+import servicios.GestorPagos;
 import servicios.Facturacion;
 import java.util.Scanner;
 import ChatBot.*;
+
+
 
 
 public class OpcionFacturacion extends OpcionMenu {
@@ -47,6 +49,32 @@ public class OpcionFacturacion extends OpcionMenu {
                     break;
                 case 2:
                     System.out.println("Ha seleccionado Modalidades de Pago. ¿En qué puedo ayudarte?");
+                    System.out.println("Ha seleccionado Modalidades de Pago. ¿En qué puedo ayudarte?");
+                    System.out.println("Modalidades de pago disponibles:");
+                    System.out.println("1. PagoFácil");
+                    System.out.println("2. MercadoPago");
+                    System.out.println("3. Transferencia");
+                    System.out.println("4. Crédito/Débito");
+                    System.out.print("Seleccione una modalidad de pago (1-4): ");
+                    int opcionModalidadPago = scanner.nextInt();
+
+                    switch (opcionModalidadPago) {
+                        case 1:
+                            GestorPagos.gestionarPagoFacil();
+                            break;
+                        case 2:
+                            GestorPagos.gestionarMercadoPago();
+                            break;
+                        case 3:
+                            GestorPagos.gestionarTransferencia();
+                            break;
+                        case 4:
+                            GestorPagos.gestionarCreditoDebito(scanner);
+                            break;
+                        default:
+                            System.out.println("Opción no válida. Por favor, seleccione una opción correcta.");
+                            break;
+                    }
                     break;
                 case 3:
                     String direccionActual = cliente.getDireccion();
