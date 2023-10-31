@@ -408,6 +408,10 @@ public class OpcionInternet extends OpcionMenu {
 
     //Método para cambiar la contraseña del router
     public void cambioContrasenia(Scanner scanner) {
-
+        //atributos
+        String clave, claveManual, nombreRed;
+        int valores, claveGenerada, opcion;
+        
+        
     }
 }
