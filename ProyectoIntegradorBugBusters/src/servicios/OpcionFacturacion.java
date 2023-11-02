@@ -5,19 +5,18 @@ import servicios.Facturacion;
 import java.util.Scanner;
 import ChatBot.*;
 
-
 public class OpcionFacturacion extends OpcionMenu {
+
     private boolean bajaInternet = false;
     private boolean bajaCable = false;
-    private double importeTotal;
+    private double importeFactura;
     private Facturacion factura;
-    
+
     // Constructor
     public OpcionFacturacion(Cliente cliente) {
         super(cliente);
         factura = new Facturacion();
     }
-
 
     // Implementación del método abstracto
     @Override
@@ -49,8 +48,7 @@ public class OpcionFacturacion extends OpcionMenu {
 
                     break;
                 case 2:
-                    System.out.println("Ha seleccionado Modalidades de Pago. ¿En qué puedo ayudarte?");
-                    System.out.println("Ha seleccionado Modalidades de Pago. ¿En qué puedo ayudarte?");
+                    System.out.println("Ha seleccionado Modalidades de Pago.");
                     System.out.println("Modalidades de pago disponibles:");
                     System.out.println("1. PagoFácil");
                     System.out.println("2. MercadoPago");
@@ -84,7 +82,7 @@ public class OpcionFacturacion extends OpcionMenu {
                     scanner.nextLine();
                     String nevaDireccion = scanner.nextLine();
                     cliente.setDireccion(nevaDireccion);
-                    System.out.println("Se modifico el domicilio " + direccionActual +" el nuevo domicilio es: " + cliente.getDireccion());
+                    System.out.println("Se modifico el domicilio " + direccionActual + " el nuevo domicilio es: " + cliente.getDireccion());
                     break;
                 case 4:
                     System.out.println("Ha seleccionado Cambio de Titularidad.");
@@ -108,38 +106,39 @@ public class OpcionFacturacion extends OpcionMenu {
                     System.out.println("Dirección: " + cliente.getDireccion());
                     break;
                 case 5: // VER!!!
+                    importeFactura = factura.getImporteTotal();
                     System.out.println("Ha seleccionado Baja de Servicio");
-                    importeTotal = factura.getImporteTotal();
-                    if(importeTotal == 0){
+                    if (importeFactura == 0) {
                         System.out.println("Usted no tiene servicios contratados");
                     }
-                    while(bajaInternet == false || bajaCable == false){
+                    while (!bajaInternet || !bajaCable) {
                         System.out.println("Qué servicio desea dar de baja?");
                         System.out.println("1.Internet\n2.Cable\n3.Salir");
                         int bajaServicio = scanner.nextInt();
-                        
-                        switch(bajaServicio){
-                            case 1: 
-                                if(bajaInternet == false){
-                                    importeTotal -= factura.getImporteInternet();
-                                    bajaInternet = true;
+
+                        switch (bajaServicio) {
+                            case 1:
+                                if (bajaInternet == false) {
+                                    importeFactura -= factura.getImporteInternet();
                                     factura.setImporteInternet(0);
+                                    factura.setImporteTotalFactura(importeFactura);
+                                    bajaInternet = true;
                                     System.out.println("El servicio de Internet se ha dado de baja con exito!");
                                     mostrarMenu(scanner);
-                                }else{
+                                } else {
                                     System.out.println("El servicio de Internet ya se encuentra dado de baja");
                                     mostrarMenu(scanner);
                                 }
                                 break;
                             case 2:
-                                if(bajaCable == false){
-                                    importeTotal -= factura.getImporteCable();
-                                    bajaCable = true;
+                                if (bajaCable == false) {
+                                    importeFactura -= factura.getImporteCable();
                                     factura.setImporteCable(0);
-                                    
+                                    factura.setImporteTotalFactura(importeFactura);
+                                    bajaCable = true;
                                     System.out.println("El servicio de Cable se ha dado de baja con exito!");
                                     mostrarMenu(scanner);
-                                }else{
+                                } else {
                                     System.out.println("El servicio de Cable ya se encuentra dado de baja");
                                     mostrarMenu(scanner);
                                 }
@@ -147,13 +146,57 @@ public class OpcionFacturacion extends OpcionMenu {
                             case 3:
                                 mostrarMenu(scanner);
                             default:
-                                System.out.println("Opción invalida");
+                                System.out.println("Opción invalida. Aprete 0 para volver.");
                                 bajaServicio = scanner.nextInt();
                         }
                     }
                     break;
                 case 6:
+                    importeFactura = factura.getImporteTotal();
                     System.out.println("Ha seleccionado Alta de Servicio.");
+                    if (importeFactura != 0) {
+                        System.out.println("Usted ya tiene contratados ambos servicios.");
+                    }
+
+                    while (bajaInternet || bajaCable ) {
+                        System.out.println("Qué servicio desea dar de alta?");
+                        System.out.println("1.Internet\n2.Cable\n3.Salir");
+                        int bajaServicio = scanner.nextInt();
+
+                        switch (bajaServicio) {
+                            case 1:
+                                if (bajaInternet == true) {
+                                    importeFactura += factura.getImporteInternet();
+                                    factura.setImporteInternet(5300);
+                                    factura.setImporteTotalFactura(importeFactura);
+                                    bajaInternet = false;
+                                    System.out.println("El servicio de Internet se ha dado de alta con exito!");
+                                    mostrarMenu(scanner);
+                                } else {
+                                    System.out.println("El servicio de Internet ya se encuentra dado de alta");
+                                    mostrarMenu(scanner);
+                                }
+                                break;
+                            case 2:
+                                if (bajaCable == true) {
+                                    importeFactura += factura.getImporteCable();
+                                    factura.setImporteCable(7900);
+                                    factura.setImporteTotalFactura(importeFactura);
+                                    bajaCable = false;
+                                    System.out.println("El servicio de Cable se ha dado de alta con exito!");
+                                    mostrarMenu(scanner);
+                                } else {
+                                    System.out.println("El servicio de Cable ya se encuentra dado de alta");
+                                    mostrarMenu(scanner);
+                                }
+                                break;
+                            case 3:
+                                mostrarMenu(scanner);
+                            default:
+                                System.out.println("Opción invalida. Aprete 0 para volver.");
+                                bajaServicio = scanner.nextInt();
+                        }
+                    }
                     break;
                 case 0:
                     System.out.println("Volviendo al Menú Principal...");
