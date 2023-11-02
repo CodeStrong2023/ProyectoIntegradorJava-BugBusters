@@ -6,12 +6,10 @@ import java.util.Scanner;
 import ChatBot.*;
 
 
-
-
 public class OpcionFacturacion extends OpcionMenu {
     private boolean bajaInternet = false;
     private boolean bajaCable = false;
-    private double importeFactura;
+    private double importeTotal;
     private Facturacion factura;
     
     // Constructor
@@ -111,7 +109,8 @@ public class OpcionFacturacion extends OpcionMenu {
                     break;
                 case 5: // VER!!!
                     System.out.println("Ha seleccionado Baja de Servicio");
-                    if(importeFactura == 0){
+                    importeTotal = factura.getImporteTotal();
+                    if(importeTotal == 0){
                         System.out.println("Usted no tiene servicios contratados");
                     }
                     while(bajaInternet == false || bajaCable == false){
@@ -122,8 +121,9 @@ public class OpcionFacturacion extends OpcionMenu {
                         switch(bajaServicio){
                             case 1: 
                                 if(bajaInternet == false){
-                                    importeFactura -= factura.getImporteInternet();
+                                    importeTotal -= factura.getImporteInternet();
                                     bajaInternet = true;
+                                    factura.setImporteInternet(0);
                                     System.out.println("El servicio de Internet se ha dado de baja con exito!");
                                     mostrarMenu(scanner);
                                 }else{
@@ -133,8 +133,10 @@ public class OpcionFacturacion extends OpcionMenu {
                                 break;
                             case 2:
                                 if(bajaCable == false){
-                                    importeFactura -= factura.getImporteCable();
+                                    importeTotal -= factura.getImporteCable();
                                     bajaCable = true;
+                                    factura.setImporteCable(0);
+                                    
                                     System.out.println("El servicio de Cable se ha dado de baja con exito!");
                                     mostrarMenu(scanner);
                                 }else{
