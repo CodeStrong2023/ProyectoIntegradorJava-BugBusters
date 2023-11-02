@@ -20,7 +20,7 @@ public class Facturacion {
         importeTotalFactura = importeCable + importeInternet;
         //seteo fecha de vencimiento 30 dias a partir de hoy
         LocalDate fechaActual = LocalDate.now();
-        fechaVencimiento = fechaActual.plusDays(15);
+        fechaVencimiento = fechaActual.plusDays(30);
     }
     public double getImporteCable() {
         return importeCable;
@@ -28,6 +28,7 @@ public class Facturacion {
     public double getImporteInternet() {
         return importeInternet;
     }
+    
     public double getImporteTotal() {
         return importeCable + importeInternet;
     }
@@ -40,7 +41,6 @@ public class Facturacion {
         this.importeCable = importeCable;
     }
 
-
     public void setImporteInternet(double importeInternet) {
         this.importeInternet = importeInternet;
     }
@@ -48,5 +48,6 @@ public class Facturacion {
     public void setImporteTotalFactura(double importeTotalFactura) {
         this.importeTotalFactura = importeTotalFactura;
     }
+
     
 }
