@@ -110,6 +110,7 @@ public class OpcionFacturacion extends OpcionMenu {
                     System.out.println("Dirección: " + cliente.getDireccion());
                     break;
                 case 5: // VER!!!
+                    importeFactura = factura.getImporteTotal();
                     System.out.println("Ha seleccionado Baja de Servicio");
                     if(importeFactura == 0){
                         System.out.println("Usted no tiene servicios contratados");
@@ -123,6 +124,8 @@ public class OpcionFacturacion extends OpcionMenu {
                             case 1: 
                                 if(bajaInternet == false){
                                     importeFactura -= factura.getImporteInternet();
+                                    factura.setImporteInternet(0);
+                                    factura.setImporteTotalFactura(importeFactura);
                                     bajaInternet = true;
                                     System.out.println("El servicio de Internet se ha dado de baja con exito!");
                                     mostrarMenu(scanner);
@@ -134,6 +137,8 @@ public class OpcionFacturacion extends OpcionMenu {
                             case 2:
                                 if(bajaCable == false){
                                     importeFactura -= factura.getImporteCable();
+                                    factura.setImporteCable(0);
+                                    factura.setImporteTotalFactura(importeFactura);
                                     bajaCable = true;
                                     System.out.println("El servicio de Cable se ha dado de baja con exito!");
                                     mostrarMenu(scanner);
