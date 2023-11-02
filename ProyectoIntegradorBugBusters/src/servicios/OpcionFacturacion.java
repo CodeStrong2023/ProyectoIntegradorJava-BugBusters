@@ -9,9 +9,12 @@ import ChatBot.*;
 
 
 public class OpcionFacturacion extends OpcionMenu {
+    private boolean bajaInternet = false;
+    private boolean bajaCable = false;
+    private double importeFactura;
     private Facturacion factura;
+    
     // Constructor
-
     public OpcionFacturacion(Cliente cliente) {
         super(cliente);
         factura = new Facturacion();
@@ -106,11 +109,49 @@ public class OpcionFacturacion extends OpcionMenu {
                     System.out.println("Fecha de Nacimiento: " + cliente.getFechaNacimiento());
                     System.out.println("Dirección: " + cliente.getDireccion());
                     break;
-                case 5:
-                    System.out.println("Ha seleccionado Baja de Servicio. ¿En qué puedo ayudarte?");
+                case 5: // VER!!!
+                    System.out.println("Ha seleccionado Baja de Servicio");
+                    if(importeFactura == 0){
+                        System.out.println("Usted no tiene servicios contratados");
+                    }
+                    while(bajaInternet == false || bajaCable == false){
+                        System.out.println("Qué servicio desea dar de baja?");
+                        System.out.println("1.Internet\n2.Cable\n3.Salir");
+                        int bajaServicio = scanner.nextInt();
+                        
+                        switch(bajaServicio){
+                            case 1: 
+                                if(bajaInternet == false){
+                                    importeFactura -= factura.getImporteInternet();
+                                    bajaInternet = true;
+                                    System.out.println("El servicio de Internet se ha dado de baja con exito!");
+                                    mostrarMenu(scanner);
+                                }else{
+                                    System.out.println("El servicio de Internet ya se encuentra dado de baja");
+                                    mostrarMenu(scanner);
+                                }
+                                break;
+                            case 2:
+                                if(bajaCable == false){
+                                    importeFactura -= factura.getImporteCable();
+                                    bajaCable = true;
+                                    System.out.println("El servicio de Cable se ha dado de baja con exito!");
+                                    mostrarMenu(scanner);
+                                }else{
+                                    System.out.println("El servicio de Cable ya se encuentra dado de baja");
+                                    mostrarMenu(scanner);
+                                }
+                                break;
+                            case 3:
+                                mostrarMenu(scanner);
+                            default:
+                                System.out.println("Opción invalida");
+                                bajaServicio = scanner.nextInt();
+                        }
+                    }
                     break;
                 case 6:
-                    System.out.println("Ha seleccionado Alta de Servicio. ¿En qué puedo ayudarte?");
+                    System.out.println("Ha seleccionado Alta de Servicio.");
                     break;
                 case 0:
                     System.out.println("Volviendo al Menú Principal...");
