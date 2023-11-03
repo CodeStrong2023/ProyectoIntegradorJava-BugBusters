@@ -105,7 +105,7 @@ public class OpcionFacturacion extends OpcionMenu {
                     System.out.println("Fecha de Nacimiento: " + cliente.getFechaNacimiento());
                     System.out.println("Dirección: " + cliente.getDireccion());
                     break;
-                case 5: // VER!!!
+                case 5:
                     importeFactura = factura.getImporteTotal();
                     System.out.println("Ha seleccionado Baja de Servicio");
                     if (importeFactura == 0) {
