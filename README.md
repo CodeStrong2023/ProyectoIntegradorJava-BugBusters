@@ -1,5 +1,9 @@
-# ProyectoIntegradorJava-BugBusters
-
-Este es el repositorio del proyecto integrador final del segundo semestre de la Tecnicatura en Programación Cohorte 2023. 
-Este proyecto es realizado completamente en el lenguaje Java.
-Para la ejecución se utiliza el IDE: Apache NetBeans IDE 17
+# Proyecto Integrador
+## Equipo: BugBusters
+## Lenguaje: Java
+## IDE: Apache NetBeans IDE 17
+## Ejecución: consola
+### Descripción: 
+    El siguiente proyecto simula ser un chat bot perteneciente a una empresa ficticia, 
+    donde ofrece servicios de internet y cable, y brinda asistencia técnica a las incidencias presentadas.
+    También permite obtener datos de la facturación de dichos servicios.
