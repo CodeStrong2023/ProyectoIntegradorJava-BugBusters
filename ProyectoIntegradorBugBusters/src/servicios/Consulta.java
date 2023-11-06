@@ -51,7 +51,8 @@ public class Consulta {
                            ****~~     TICKET DE ORDEN      ~~****
                            --------------------------------------
                            """);
-        
+        int numOrden = (int) (Math.random()*100000);
+        System.out.println("Número de orden: " + numOrden);
         System.out.println("La visita se realizará al domicilio: " + cliente.getDireccion());
         System.out.println("Se comunicarán con usted al teléfono: " + cliente.getTelefono());
         otraConsulta();
@@ -59,18 +60,17 @@ public class Consulta {
     
     //Metodo salir
     public void salir(){
-        System.out.println("GRACIAS POR USAR NUESTRO ASISTENTE VIRTUAL ;)");
+        System.out.println("\nGRACIAS POR USAR NUESTRO ASISTENTE VIRTUAL ;)");
         System.out.println("""
-                          >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-                          ^    Desarrolladores:                   ^
-                          ^    |--------> MARCOS SENN             ^
-                          ^    |--------> SANTIAGO SEGURA         ^
-                          ^    |--------> DAVID ABADIE            ^
-                          ^    |--------> NICOLAS NUÑEZ           ^
-                          ^    |--------> BELEN LIMACHI           ^
-                          ^    |--------> FLORENCIA CAMONA        ^
-                          ^    |--------> FRANCO PIZARRO          ^
-                          <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
+                          >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                          ^     Desarrolladores:                   ^
+                          ^     |--------> MARCOS SENN             ^
+                          ^     |--------> SANTIAGO SEGURA         ^
+                          ^     |--------> DAVID ABADIE            ^
+                          ^     |--------> NICOLAS NUÑEZ           ^
+                          ^     |--------> BELEN LIMACHI           ^
+                          ^     |--------> FRANCO PIZARRO          ^
+                          <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
                            """);
         System.exit(0);
     }  
