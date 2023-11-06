@@ -41,10 +41,10 @@ public class AsistenteVirtual {
                     new OpcionAsistenciaTelefonica(cliente).mostrarMenu(scanner);
                     break;
                 case 0:
-                    System.out.println("Gracias por utilizar BugsBusters. ¡Hasta luego!");
+                    System.out.println("\nGracias por utilizar BugsBusters. ¡Hasta luego!");
                     break;
                 default:
-                    System.out.println("Opción no válida. Por favor, seleccione una opción correcta.");
+                    System.out.println("\nOpción no válida. Por favor, seleccione una opción correcta.");
                     break;
             }
 
@@ -81,7 +81,7 @@ public class AsistenteVirtual {
             
             return new Cliente(nombre, apellido, dni, fechaNacimiento, direccion, telefono, correo);
         } else {
-            System.out.println("Lo siento, debes ser mayor de edad para registrarte en BugsBusters. Llama a alguien mayor para obtener ayuda.");
+            System.out.println("\nLo siento, debes ser mayor de edad para registrarte en BugsBusters. Llama a alguien mayor para obtener ayuda.");
            return null;
         }
     }
