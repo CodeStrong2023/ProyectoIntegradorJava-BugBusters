@@ -200,6 +200,7 @@ public class OpcionFacturacion extends OpcionMenu {
                     break;
                 case 0:
                     System.out.println("Volviendo al Menú Principal...");
+                    new AsistenteVirtual().mostrarMenuPrincipal(scanner);
                     break;
                 default:
                     System.out.println("Opción no válida. Por favor, seleccione una opción correcta.");

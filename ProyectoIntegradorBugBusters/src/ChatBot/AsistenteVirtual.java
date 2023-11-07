@@ -41,7 +41,7 @@ public class AsistenteVirtual {
                     new OpcionAsistenciaTelefonica(cliente).mostrarMenu(scanner);
                     break;
                 case 0:
-                    System.out.println("\nGracias por utilizar BugsBusters. ¡Hasta luego!");
+                    new Consulta(cliente).salir();
                     break;
                 default:
                     System.out.println("\nOpción no válida. Por favor, seleccione una opción correcta.");
