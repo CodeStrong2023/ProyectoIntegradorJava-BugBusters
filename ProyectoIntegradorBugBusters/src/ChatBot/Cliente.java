@@ -50,13 +50,17 @@ public class Cliente {
         return fechaNacimiento;
     }
 
-    public String getDireccion() { return direccion; }
+    public String getDireccion() { 
+        return direccion; 
+    }
 
     public String getTelefono() {
         return telefono;
     }
 
-    public String getCorreo() { return correo; }
+    public String getCorreo() {
+        return correo;
+    }
 
 
     //Setters

@@ -5,7 +5,7 @@ import ChatBot.*;
 import java.util.Scanner;
 
 public class Consulta {
-    protected Cliente cliente;
+    public Cliente cliente;
     protected char resuelve;
     protected char consulta;
     
