@@ -42,7 +42,7 @@ public class OpcionInternet extends OpcionMenu {
                     break;
                 case 0:
                     System.out.println("Volviendo al Menú Principal...");
-                    new AsistenteVirtual().mostrarMenuPrincipal(scanner);
+                    new AsistenteVirtual().mostrarMenuPrincipal(cliente);
                     break;
                 default:
                     System.out.println("Opción no válida. Por favor, seleccione una opción correcta.");
@@ -433,7 +433,7 @@ public class OpcionInternet extends OpcionMenu {
                     break;
                 case 3:
                     System.out.println("\nVolviendo al Menú Principal...");
-                    new AsistenteVirtual().mostrarMenuPrincipal(scanner);
+                    new AsistenteVirtual().mostrarMenuPrincipal(cliente);
                     break;
                 default:
                     System.out.println("\nOpción no válida. Por favor, seleccione una opción correcta.");
@@ -542,7 +542,7 @@ public class OpcionInternet extends OpcionMenu {
             if (RTA == 1) {
                 velocidadSegunActividad(scanner);
             } else if (RTA == 2) {
-                new AsistenteVirtual().mostrarMenuPrincipal(scanner);
+                new AsistenteVirtual().mostrarMenuPrincipal(cliente);
             } else {
                 System.out.println("\nOpción no válida. Por favor, seleccione una opción correcta.");
             }
@@ -592,7 +592,7 @@ public class OpcionInternet extends OpcionMenu {
                     break;
 
                 case 3: // Salir al menú principal
-                    new AsistenteVirtual().mostrarMenuPrincipal(scanner);
+                    new AsistenteVirtual().mostrarMenuPrincipal(cliente);
                     break;
 
                 default:

@@ -5,6 +5,7 @@ import java.util.Scanner;
 import servicios.*;
 
 public class AsistenteVirtual {
+    Scanner scanner = new Scanner(System.in);
     private Cliente cliente;
 
     // Setter para el cliente
@@ -12,7 +13,7 @@ public class AsistenteVirtual {
         this.cliente = cliente;
     }
 
-    public void mostrarMenuPrincipal(Scanner scanner) {
+    public void mostrarMenuPrincipal(Cliente cliente) {
         int opcion;
 
         do {

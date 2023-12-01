@@ -41,7 +41,7 @@ public class OpcionCable extends OpcionMenu {
                     break;
                 case 0:
                     System.out.println("Volviendo al Menú Principal...");
-                    new AsistenteVirtual().mostrarMenuPrincipal(scanner);
+                    new AsistenteVirtual().mostrarMenuPrincipal(cliente);
                     break;
                 default:
                     System.out.println("Opción no válida. Por favor, seleccione una opción correcta.");
