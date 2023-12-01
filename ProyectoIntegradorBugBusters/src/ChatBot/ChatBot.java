@@ -17,7 +17,7 @@ public class ChatBot {
                 asistente.setCliente(nuevoCliente);
 
                 // Menú principal
-                asistente.mostrarMenuPrincipal(scanner);
+                asistente.mostrarMenuPrincipal(nuevoCliente);
             }
         
         scanner.close();

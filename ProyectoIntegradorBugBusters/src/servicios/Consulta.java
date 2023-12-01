@@ -37,7 +37,7 @@ public class Consulta {
         
         if(consulta == 's'){
             System.out.println(">> REDIRIGIENDO AL MENÚ PRINCIPAL <<");
-            new AsistenteVirtual().mostrarMenuPrincipal(scanner);
+            new AsistenteVirtual().mostrarMenuPrincipal(cliente);
         }
         else{
             salir();
